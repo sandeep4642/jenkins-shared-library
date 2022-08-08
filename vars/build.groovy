@@ -1,3 +1,3 @@
 def mavenbuild() {
-  sh "mvn clean test"
+  cmd_exec("mvn clean test")
 }
