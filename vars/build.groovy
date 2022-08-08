@@ -1,3 +1,3 @@
 def mavenbuild() {
-   bat "mvn clean test"
+   bat "mvn sonar:sonar -Dsonar.branch.name=${BRANCH_NAME}"
 }
