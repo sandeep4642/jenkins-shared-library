@@ -1,6 +1,6 @@
 def mavenbuild() {
    echo "Building the package"
-   bat "mvn clean package"
+   bat "mvn -D SkipTests clean package"
 }
 
 
