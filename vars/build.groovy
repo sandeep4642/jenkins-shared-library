@@ -12,7 +12,7 @@ def mavensonarbuild() {
    }
 }
 
-def buildDockerTaggedImage(Registry, RegistryRepo, Dockerfile, Tag) {
+def buildDockerTaggedImage(Registry, RegistryRepo, Dockerfile, Tag = BUILD_NUMBER) {
    def imageURI = utils.getImageURI(Registry, RegistryRepo, Tag)
 
    dockerImage = docker.build(imageURI, "-f $Dockerfile .")
