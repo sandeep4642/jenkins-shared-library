@@ -1,14 +1,14 @@
 def mavenbuild() {
    echo "Building the package"
-   bat "mvn -D SkipTests clean package"
+   sh "mvn -D SkipTests clean package"
 }
 
 
 def mavensonarbuild() {
    withSonarQubeEnv('sonar') {
       def BRANCH_NAME = utils.getbranch()
-   bat "mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install org.jacoco:jacoco-maven-plugin:report"   
-   bat "mvn sonar:sonar -Dsonar.branch.name=${BRANCH_NAME}"
+   sh "mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install org.jacoco:jacoco-maven-plugin:report"   
+   sh "mvn sonar:sonar -Dsonar.branch.name=${BRANCH_NAME}"
    }
 }
 
