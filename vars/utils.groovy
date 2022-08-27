@@ -7,6 +7,6 @@ def getbranch() {
 def getImageURI(Registry, RegistryRepo, Tag){
   def imageURI = Registry + "$RegistryRepo:$Tag"
 
-  echo $imageURI
+  echo "${imageURI}"
   return imageURI
 }
