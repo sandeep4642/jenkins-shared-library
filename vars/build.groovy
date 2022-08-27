@@ -21,7 +21,7 @@ def buildDockerTaggedImage(Registry, RegistryRepo, Dockerfile, Tag = BUILD_NUMBE
 
 def publishDockerImage(Registry, RegistryCreds, dockerImage, dockerImageTag, removeAfterPublish = true) {
    docker.withRegistry( 'https://' + Registry, RegistryCreds){
-      dockerImageTag.push()
+      dockerImage.push()
    }
 
    if (removeAfterPublish) {
