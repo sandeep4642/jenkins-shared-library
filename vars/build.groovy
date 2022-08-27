@@ -23,4 +23,9 @@ def publishDockerImage(Registry, RegistryCreds, dockerImage, dockerImageTag, rem
    docker.withRegistry( 'https://' + Registry, RegistryCreds){
       dockerImageTag.push()
    }
+
+   if (removeAfterPublish) {
+      echo "Removing Doker Image"
+      removeDockerImage(dockerImageTag)
+   }
 }
