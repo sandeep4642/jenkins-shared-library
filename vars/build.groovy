@@ -7,8 +7,8 @@ def mavenbuild() {
 def mavensonarbuild() {
    withSonarQubeEnv('sonar-9.5') {
       def BRANCH_NAME = utils.getbranch()
-   bat "mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install org.jacoco:jacoco-maven-plugin:report"   
-   bat "mvn sonar:sonar"
+   sh "mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install org.jacoco:jacoco-maven-plugin:report"   
+   sh "mvn sonar:sonar"
    }
 }
 
