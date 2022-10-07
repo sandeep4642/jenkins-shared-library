@@ -34,7 +34,8 @@ def buildDockerTaggedImage(Registry, RegistryRepo, Dockerfile, Tag = BUILD_NUMBE
 
 def buildDockerTaggedImage1(imageURI) {
    dockerImage = docker.build("$imageURI", "-f $Dockerfile .")
-   echo "${dockerImage}"
+   echo "$dockerImage"
+   echo "Docker build"
    return dockerImage
 }
 
