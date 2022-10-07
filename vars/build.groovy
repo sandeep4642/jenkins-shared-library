@@ -12,6 +12,14 @@ def mavensonarbuild() {
    }
 }
 
+def windowsmavensonarbuild() {
+   withSonarQubeEnv('local-sonar1') {
+      def BRANCH_NAME = utils.getbranch()
+   bat "mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install org.jacoco:jacoco-maven-plugin:report"   
+   bat "mvn sonar:sonar"
+   }
+}
+
 def qualitygate() {
    sleep(30)
    echo "Checking quality gate status"
