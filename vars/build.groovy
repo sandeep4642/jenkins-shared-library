@@ -43,6 +43,10 @@ def dockerpush() {
  }
 }
 
+def removedockerimage(imageURI) {
+   sh "docker rmi $imageURI"
+}
+
 def publishDockerImage(Registry, RegistryCreds, dockerImage, dockerImageTag, removeAfterPublish = true) {
    docker.withRegistry( 'https://' + Registry, RegistryCreds){
       dockerImage.push()
