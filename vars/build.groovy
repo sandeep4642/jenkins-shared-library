@@ -41,6 +41,7 @@ def dockerpush() {
     docker.withRegistry( '', registryCreds ) {
     dockerImage.push("$BUILD_NUMBER")
  }
+}
 
 def publishDockerImage(Registry, RegistryCreds, dockerImage, dockerImageTag, removeAfterPublish = true) {
    docker.withRegistry( 'https://' + Registry, RegistryCreds){
