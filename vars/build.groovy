@@ -33,7 +33,7 @@ def buildDockerTaggedImage(Registry, RegistryRepo, Dockerfile, Tag = BUILD_NUMBE
 }
 
 def buildDockerTaggedImage1() {
-   dockerImage = docker.build "sandeep/sandeep-springboot/spring-boot:50"
+   dockerImage = docker.build $imageURI
    
 }
 
