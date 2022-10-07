@@ -34,10 +34,13 @@ def buildDockerTaggedImage(Registry, RegistryRepo, Dockerfile, Tag = BUILD_NUMBE
 
 def buildDockerTaggedImage1(imageURI) {
    dockerImage = docker.build("$imageURI", "-f $Dockerfile .")
-   echo "$dockerImage"
-   echo "Docker build"
    return dockerImage
 }
+
+def dockerpush() {
+    docker.withRegistry( '', registryCreds ) {
+    dockerImage.push("$BUILD_NUMBER")
+ }
 
 def publishDockerImage(Registry, RegistryCreds, dockerImage, dockerImageTag, removeAfterPublish = true) {
    docker.withRegistry( 'https://' + Registry, RegistryCreds){
