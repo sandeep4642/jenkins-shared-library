@@ -32,7 +32,7 @@ def buildDockerTaggedImage(Registry, RegistryRepo, Dockerfile, Tag = BUILD_NUMBE
    return dockerImage
 }
 
-def buildDockerTaggedImage1(imageuri) {
+def buildDockerTaggedImage1() {
    dockerImage = docker.build "sandeep/sandeep-springboot/spring-boot:50"
    
 }
