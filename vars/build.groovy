@@ -27,7 +27,7 @@ def qualitygate() {
 }
 
 def buildDockerTaggedImage(Registry, RegistryRepo, Dockerfile, Tag = BUILD_NUMBER) {
-   def imageURI = utils.getImageURI(Registry, RegistryRepo, Tag)
+   //def imageURI = utils.getImageURI(Registry, RegistryRepo, Tag)
    dockerImage = docker.build(imageURI, "-f $Dockerfile .")
    return dockerImage
 }
