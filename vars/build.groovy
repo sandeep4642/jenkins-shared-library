@@ -12,6 +12,12 @@ def mavensonarbuild() {
    }
 }
 
+def qualitygate() {
+   sleep(30)
+   echo "Checking quality gate status"
+   waitForQualityGate abortPipeline: true
+}
+
 def buildDockerTaggedImage(Registry, RegistryRepo, Dockerfile, Tag = BUILD_NUMBER) {
    def imageURI = utils.getImageURI(Registry, RegistryRepo, Tag)
    dockerImage = docker.build(imageURI, "-f $Dockerfile .")
