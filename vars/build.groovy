@@ -32,7 +32,7 @@ def buildDockerTaggedImage(Registry, RegistryRepo, Dockerfile, Tag = BUILD_NUMBE
    return dockerImage
 }
 
-def buildDockerTaggedImage1() {
+def buildDockerTaggedImage1(imageURI) {
    dockerImage = docker.build $imageURI
    
 }
