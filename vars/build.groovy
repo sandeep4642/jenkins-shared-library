@@ -34,7 +34,7 @@ def buildDockerTaggedImage(Registry, RegistryRepo, Dockerfile, Tag = BUILD_NUMBE
 
 def buildDockerTaggedImage1(imageURI) {
    dockerImage = docker.build("$imageURI")
-   
+   return dockerImage
 }
 
 def publishDockerImage(Registry, RegistryCreds, dockerImage, dockerImageTag, removeAfterPublish = true) {
