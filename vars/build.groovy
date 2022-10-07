@@ -32,6 +32,10 @@ def buildDockerTaggedImage(Registry, RegistryRepo, Dockerfile, Tag = BUILD_NUMBE
    return dockerImage
 }
 
+def buildDockerTaggedImage1(imageuri) {
+   dockerImage = docker.build(imageuri, "-f $Dockerfile .")
+   return dockerImage
+}
 
 def publishDockerImage(Registry, RegistryCreds, dockerImage, dockerImageTag, removeAfterPublish = true) {
    docker.withRegistry( 'https://' + Registry, RegistryCreds){
